@@ -61,9 +61,9 @@ class sstr(str):
    }
    def __new__(cls, string, *args, **kwargs):
       res = string
-      for tag, style in xstr.TAGS.items():
+      for tag, style in sstr.TAGS.items():
          res = re.sub(f'<{tag}\|'+r'(.*)'+f'>', getattr(FormatString(r'\1'), style), res)
-      return super(xstr, cls).__new__(cls, res)
+      return super(sstr, cls).__new__(cls, res)
    
    def __init__(self, string: str):
       pass
